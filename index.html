@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Góc Nhà Cưng - Đồ Gia Dụng Giá Bình Dân</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo" onclick="showSection('home')">
+        <span class="logo-icon">🐾</span>
+        <span class="logo-text">Góc Nhà Cưng</span>
+      </a>
+      <nav class="nav">
+        <a href="#" class="nav-link active" onclick="showSection('home')" data-section="home">Trang chủ</a>
+        <a href="#" class="nav-link" onclick="showSection('products')" data-section="products">Sản phẩm</a>
+        <a href="#" class="nav-link" onclick="showSection('about')" data-section="about">Giới thiệu</a>
+        <a href="#" class="nav-link" onclick="showSection('contact')" data-section="contact">Liên hệ</a>
+      </nav>
+      <button class="cart-btn" onclick="toggleCart()">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="menu-toggle" onclick="toggleMobileMenu()">☰</button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#" onclick="showSection('home'); closeMobileMenu()">Trang chủ</a>
+    <a href="#" onclick="showSection('products'); closeMobileMenu()">Sản phẩm</a>
+    <a href="#" onclick="showSection('about'); closeMobileMenu()">Giới thiệu</a>
+    <a href="#" onclick="showSection('contact'); closeMobileMenu()">Liên hệ</a>
+  </div>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>🛒 Giỏ hàng</h3>
+      <button class="cart-close" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="cart-empty">Giỏ hàng trống</p>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-total">
+        <span>Tổng cộng:</span>
+        <span id="cartTotal">0đ</span>
+      </div>
+      <button class="btn-checkout" onclick="showCheckout()">Đặt hàng ngay</button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- HOME SECTION -->
+    <section id="section-home">
+      <!-- HERO -->
+      <div class="hero">
+        <div class="hero-content">
+          <span class="hero-badge">🏠 Giá hợp lý – Tiện dùng – Dễ mua online</span>
+          <h1>Góc Nhà Cưng <br><span class="highlight">Đồ Gia Dụng</span> Giá Bình Dân</h1>
+          <p>Sản phẩm thiết yếu cho sinh hoạt hằng ngày với mức giá từ 20K – 190K. Giao hàng nhanh, hình ảnh rõ ràng!</p>
+          <div class="hero-buttons">
+            <button class="btn-primary" onclick="showSection('products')">Mua sắm ngay 🛍️</button>
+            <button class="btn-secondary" onclick="showSection('about')">Giới thiệu</button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-blob"></div>
+          <div class="hero-emoji-float">🍳</div>
+          <div class="hero-emoji-float e2">🧊</div>
+          <div class="hero-emoji-float e3">📦</div>
+        </div>
+      </div>
+
+      <!-- FEATURES -->
+      <div class="features">
+        <div class="feature-card">
+          <span class="feature-icon">💰</span>
+          <h3>Giá Bình Dân</h3>
+          <p>Chỉ từ 20K – 190K</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🚚</span>
+          <h3>Giao Hàng Nhanh</h3>
+          <p>Đóng gói cẩn thận</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">✅</span>
+          <h3>Đảm Bảo Chất Lượng</h3>
+          <p>Hình ảnh thực tế 100%</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🎁</span>
+          <h3>Combo Tiết Kiệm</h3>
+          <p>Mua nhiều – Giảm nhiều</p>
+        </div>
+      </div>
+
+      <!-- FEATURED PRODUCTS -->
+      <div class="section-title">
+        <h2>Sản phẩm nổi bật ⭐</h2>
+        <p>Những sản phẩm được yêu thích nhất tại Góc Nhà Cưng</p>
+      </div>
+      <div class="products-grid" id="featuredProducts"></div>
+      <div class="text-center">
+        <button class="btn-primary" onclick="showSection('products')">Xem tất cả sản phẩm →</button>
+      </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section id="section-products" style="display:none;">
+      <div class="section-title">
+        <h2>Tất cả sản phẩm 🛒</h2>
+        <p>Chọn sản phẩm phù hợp cho tổ ấm của bạn</p>
+      </div>
+      <div class="category-filter" id="categoryFilter"></div>
+      <div class="products-grid" id="allProducts"></div>
+      <div class="no-products" id="noProducts" style="display:none;">
+        <span>🔍</span>
+        <p>Không tìm thấy sản phẩm nào</p>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="section-about" style="display:none;">
+      <div class="about-page">
+        <h2>Về Góc Nhà Cưng 🐾</h2>
+        <div class="about-content">
+          <div class="about-card">
+            <span class="about-icon">🏠</span>
+            <h3>Mô hình kinh doanh</h3>
+            <p>Đồ gia dụng online, tập trung vào các sản phẩm thiết yếu cho nhà bếp và sinh hoạt hằng ngày.</p>
+          </div>
+          <div class="about-card">
+            <span class="about-icon">💰</span>
+            <h3>Mức giá</h3>
+            <p>20.000đ – 190.000đ, phù hợp với sinh viên và người trẻ mới đi làm.</p>
+          </div>
+          <div class="about-card">
+            <span class="about-icon">📱</span>
+            <h3>Kênh bán hàng</h3>
+            <p>Website Góc Nhà Cưng + Fanpage Facebook. Đặt hàng đơn giản, nhanh chóng.</p>
+          </div>
+          <div class="about-card full-width">
+            <span class="about-icon">🎯</span>
+            <h3>Định hướng</h3>
+            <p>Giá hợp lý – Tiện dụng – Dễ mua online. Hình ảnh/video sản phẩm rõ ràng, website đặt hàng đơn giản, tạo combo tiết kiệm, có khuyến mãi và voucher.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="section-contact" style="display:none;">
+      <div class="contact-page">
+        <h2>Liên hệ với chúng tôi 💬</h2>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <span class="contact-icon">📱</span>
+            <h3>Điện thoại</h3>
+            <p>0901 234 567</p>
+          </div>
+          <div class="contact-card">
+            <span class="contact-icon">✉️</span>
+            <h3>Email</h3>
+            <p>gonhacung@gmail.com</p>
+          </div>
+          <div class="contact-card">
+            <span class="contact-icon">📘</span>
+            <h3>Facebook</h3>
+            <p>fb.com/gonhacung</p>
+          </div>
+          <div class="contact-card">
+            <span class="contact-icon">⏰</span>
+            <h3>Giờ làm việc</h3>
+            <p>8:00 – 21:00 hằng ngày</p>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm" onsubmit="return handleContact(event)">
+          <h3>Gửi tin nhắn cho chúng tôi</h3>
+          <input type="text" placeholder="Họ và tên" required>
+          <input type="email" placeholder="Email" required>
+          <textarea placeholder="Nội dung tin nhắn..." rows="4" required></textarea>
+          <button type="submit" class="btn-primary">Gửi tin nhắn ✉️</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- CHECKOUT SECTION -->
+    <section id="section-checkout" style="display:none;">
+      <div class="checkout-page">
+        <h2>Đặt hàng 📋</h2>
+        <div class="checkout-grid">
+          <form class="checkout-form" id="checkoutForm" onsubmit="return handleOrder(event)">
+            <h3>Thông tin giao hàng</h3>
+            <input type="text" id="custName" placeholder="Họ và tên *" required>
+            <input type="tel" id="custPhone" placeholder="Số điện thoại *" required>
+            <input type="text" id="custAddress" placeholder="Địa chỉ giao hàng *" required>
+            <textarea id="custNote" placeholder="Ghi chú (tùy chọn)" rows="3"></textarea>
+
+            <h3>Phương thức thanh toán</h3>
+            <div class="payment-options">
+              <label class="payment-option">
+                <input type="radio" name="payment" value="cod" checked>
+                <span class="payment-label">💵 Thanh toán khi nhận hàng (COD)</span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="transfer">
+                <span class="payment-label">🏦 Chuyển khoản ngân hàng</span>
+              </label>
+            </div>
+            <button type="submit" class="btn-primary btn-full">Xác nhận đặt hàng ✅</button>
+          </form>
+          <div class="checkout-summary" id="checkoutSummary"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORDER SUCCESS -->
+    <section id="section-success" style="display:none;">
+      <div class="success-page">
+        <div class="success-icon">🎉</div>
+        <h2>Đặt hàng thành công!</h2>
+        <p>Cảm ơn bạn đã tin tưởng Góc Nhà Cưng. Shop sẽ liên hệ bạn trong thời gian sớm nhất!</p>
+        <div class="success-order" id="successOrder"></div>
+        <button class="btn-primary" onclick="showSection('home')">Về trang chủ</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h3>🐾 Góc Nhà Cưng</h3>
+        <p>Đồ gia dụng giá bình dân, tiện lợi và dễ mua online.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Liên kết</h3>
+        <a href="#" onclick="showSection('home')">Trang chủ</a>
+        <a href="#" onclick="showSection('products')">Sản phẩm</a>
+        <a href="#" onclick="showSection('about')">Giới thiệu</a>
+        <a href="#" onclick="showSection('contact')">Liên hệ</a>
+      </div>
+      <div class="footer-col">
+        <h3>Hỗ trợ</h3>
+        <p>📞 0901 234 567</p>
+        <p>✉️ gonhacung@gmail.com</p>
+        <p>⏰ 8:00 – 21:00 hằng ngày</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Góc Nhà Cưng. All rights reserved. ❤️</p>
+    </div>
+  </footer>
+
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
