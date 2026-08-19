@@ -4,7 +4,7 @@ const PRODUCTS = [
     name: "Chảo chống dính HappyCook 22cm",
     price: 190000,
     category: "chao",
-    image: "images/image1.jpeg",
+    image: "images/image1.jpeg?v=3",
     description: "Chảo chống dính cao cấp HappyCook 22cm, chịu nhiệt tốt, dễ vệ sinh, phù hợp mọi bếp.",
     badge: "Bán chạy"
   },
@@ -13,7 +13,7 @@ const PRODUCTS = [
     name: "Bình giữ nhiệt D.KADI 320ml",
     price: 120000,
     category: "binh",
-    image: "images/image2.jpeg",
+    image: "images/image2.jpeg?v=3",
     description: "Bình giữ nhiệt D.KADI 320ml, giữ nóng/lạnh đến 12 giờ, nhỏ gọn, tiện lợi.",
     badge: "Hot"
   },
@@ -22,7 +22,7 @@ const PRODUCTS = [
     name: "Thớt kháng khuẩn JOKA",
     price: 80000,
     category: "thot",
-    image: "images/image3.png",
+    image: "images/image3.png?v=3",
     description: "Thớt kháng khuẩn JOKA, chất liệu an toàn, dễ rửa, phù hợp bếp gia đình.",
     badge: ""
   },
@@ -31,7 +31,7 @@ const PRODUCTS = [
     name: "Hộp bầu Duy Tân",
     price: 50000,
     category: "hop",
-    image: "images/image4.png",
+    image: "images/image4.png?v=3",
     description: "Hộp bầu Duy Tân đa năng, đựng thực phẩm tiện lợi, nắp kín, bền đẹp.",
     badge: ""
   },
@@ -40,7 +40,7 @@ const PRODUCTS = [
     name: "Hũ thủy tinh đa năng",
     price: 20000,
     category: "hu",
-    image: "images/image5.png",
+    image: "images/image5.png?v=3",
     description: "Hũ thủy tinh đa năng, nhỏ xinh, đựng gia vị hoặc thực phẩm khô, giá rẻ.",
     badge: "Giá tốt"
   },
@@ -49,7 +49,7 @@ const PRODUCTS = [
     name: "Hộp thủy tinh nắp khóa 4 cạnh - Size nhỏ",
     price: 45000,
     category: "hop",
-    image: "images/image6.jpeg",
+    image: "images/image6.jpeg?v=3",
     description: "Hộp thủy tinh nắp khóa 4 cạnh size nhỏ, kín hơi, giữ thực phẩm tươi ngon.",
     badge: ""
   },
@@ -58,7 +58,7 @@ const PRODUCTS = [
     name: "Hộp thủy tinh nắp khóa 4 cạnh - Size lớn",
     price: 55000,
     category: "hop",
-    image: "images/image6.jpeg",
+    image: "images/image6.jpeg?v=3",
     description: "Hộp thủy tinh nắp khóa 4 cạnh size lớn, dung tích lớn, phù hợp đựng đồ ăn thừa.",
     badge: ""
   }
